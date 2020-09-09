@@ -11,7 +11,8 @@ import UIKit
 final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
-    private let itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
+    // テストデータを追加させるため、let->var、に変更
+    private var itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,15 @@ final class ItemListViewController: UIViewController {
         itemListTableView.register(nib, forCellReuseIdentifier: "Cell")
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
+    }
+    
+    @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
+        if let addItemVC = unwindSegue.source as? ItemAddViewController {
+            itemData.append(addItemVC.testCheckItem)
+            //printでの出力、tableViewでの表示、両方で追加されたかを確認
+            print(itemData)
+            itemListTableView.reloadData()
+        }
     }
 }
 
