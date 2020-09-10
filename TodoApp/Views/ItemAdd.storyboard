@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0mF-Yb-O47">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--項目追加-->
+        <scene sceneID="Ihx-WN-rJe">
+            <objects>
+                <viewController id="fWs-Kz-rwd" customClass="ItemAddViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acJ-HG-f2p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60d-Z6-DDa">
+                                <rect key="frame" x="40" y="155" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8SO-P9-wLw">
+                                <rect key="frame" x="101" y="148" width="293" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8SO-P9-wLw" firstAttribute="top" secondItem="ddR-AA-fiT" secondAttribute="top" constant="60" id="4sJ-Sk-giH"/>
+                            <constraint firstItem="60d-Z6-DDa" firstAttribute="leading" secondItem="ddR-AA-fiT" secondAttribute="leading" constant="40" id="8I1-AL-QkD"/>
+                            <constraint firstItem="8SO-P9-wLw" firstAttribute="leading" secondItem="60d-Z6-DDa" secondAttribute="trailing" constant="26" id="Cpp-m4-Qcr"/>
+                            <constraint firstItem="60d-Z6-DDa" firstAttribute="top" secondItem="ddR-AA-fiT" secondAttribute="top" constant="67" id="Mxp-nj-G6K"/>
+                            <constraint firstItem="8SO-P9-wLw" firstAttribute="leading" secondItem="60d-Z6-DDa" secondAttribute="trailing" constant="26" id="elO-aV-p6A"/>
+                            <constraint firstItem="ddR-AA-fiT" firstAttribute="trailing" secondItem="8SO-P9-wLw" secondAttribute="trailing" constant="20" id="kJe-gv-a6a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ddR-AA-fiT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="項目追加" id="2Bf-09-Ve9">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Gqq-dX-T43"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xRk-Bg-Hf7">
+                            <connections>
+                                <action selector="cancelButton:" destination="fWs-Kz-rwd" id="tn8-Bx-ab5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="69E-je-Uvr">
+                            <connections>
+                                <action selector="addCheckItem:" destination="fWs-Kz-rwd" id="hqz-3Y-b2l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="vok-sB-amB" kind="unwind" identifier="unWindByItemAdd" unwindAction="unwindToVC:" id="wHx-po-Rtl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ok6-9e-77m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vok-sB-amB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="892.75362318840587" y="-104.46428571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6sO-so-7Vz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0mF-Yb-O47" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Kr-9n-xmM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fWs-Kz-rwd" kind="relationship" relationship="rootViewController" id="uh0-OO-XfE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbo-rY-Wm4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.86956521739131" y="-89.0625"/>
+        </scene>
+    </scenes>
+</document>

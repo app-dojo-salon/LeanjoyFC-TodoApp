@@ -27,9 +27,11 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
-        if let addItemVC = unwindSegue.source as? ItemAddViewController {
+        // 追加ボタンを押下した場合
+        if unwindSegue.identifier == "unWindByItemAdd" {
+            let addItemVC = unwindSegue.source as! ItemAddViewController
             itemData.append(addItemVC.testCheckItem)
-            //printでの出力、tableViewでの表示、両方で追加されたかを確認
+            // printでの出力、tableViewでの表示、両方で追加されたかを確認
             print(itemData)
             itemListTableView.reloadData()
         }
@@ -46,6 +48,9 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = itemData[indexPath.row]
         cell.itemTitle.text = item
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "itemAdd", sender: nil)
     }
 }
 

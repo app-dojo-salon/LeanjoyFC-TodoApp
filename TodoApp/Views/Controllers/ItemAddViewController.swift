@@ -20,9 +20,12 @@ final class ItemAddViewController: UIViewController {
 
     }
     
-    @IBAction func addItemButton(_ sender: Any) {
-        // itemListViewControllerへ遷移
-        performSegue(withIdentifier: "addItem", sender: nil)
+    @IBAction func addCheckItem(_ sender: Any) {
+        performSegue(withIdentifier: "unWindByItemAdd", sender: nil)
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

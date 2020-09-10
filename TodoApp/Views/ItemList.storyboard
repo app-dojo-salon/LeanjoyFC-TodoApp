@@ -33,7 +33,7 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Gpi-gS-fMF"/>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="Ruy-5q-RTl">
                             <connections>
-                                <segue destination="YPR-Ra-JWK" kind="presentation" id="dlJ-yi-s5F"/>
+                                <segue destination="Elt-Ai-RwI" kind="presentation" identifier="itemAdd" id="Qcu-Lr-18f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -45,58 +45,13 @@
             </objects>
             <point key="canvasLocation" x="2075" y="-696"/>
         </scene>
-        <!--項目追加-->
-        <scene sceneID="7DM-lW-eAN">
+        <!--ItemAdd-->
+        <scene sceneID="Nir-HY-iCz">
             <objects>
-                <viewController id="td9-6b-D52" customClass="ItemAddViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="92c-B2-FxL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CG9-lx-6bk">
-                                <rect key="frame" x="39" y="116" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VcK-2A-mzN">
-                                <rect key="frame" x="126" y="109" width="268" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="VcK-2A-mzN" firstAttribute="leading" secondItem="CG9-lx-6bk" secondAttribute="trailing" constant="35" id="2G9-Ey-aSj"/>
-                            <constraint firstItem="dDn-MQ-fil" firstAttribute="trailing" secondItem="VcK-2A-mzN" secondAttribute="trailing" constant="20" id="OIB-Se-Uj9"/>
-                            <constraint firstItem="CG9-lx-6bk" firstAttribute="leading" secondItem="dDn-MQ-fil" secondAttribute="leading" constant="39" id="ZEA-V0-Kqn"/>
-                            <constraint firstItem="CG9-lx-6bk" firstAttribute="top" secondItem="dDn-MQ-fil" secondAttribute="top" constant="60" id="dzb-fv-ZwQ"/>
-                            <constraint firstItem="VcK-2A-mzN" firstAttribute="top" secondItem="dDn-MQ-fil" secondAttribute="top" constant="53" id="jhO-lU-FFC"/>
-                            <constraint firstItem="VcK-2A-mzN" firstAttribute="leading" secondItem="CG9-lx-6bk" secondAttribute="trailing" constant="35" id="rgo-uc-RTA"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="dDn-MQ-fil"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="項目追加" id="lpO-3X-fjc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GLd-4t-8XE">
-                            <connections>
-                                <segue destination="1PB-Xt-gqu" kind="unwind" identifier="cancel" unwindAction="unwindToVC:" id="Uky-Gc-AiW"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="t5x-RT-V3g">
-                            <connections>
-                                <action selector="addItemButton:" destination="td9-6b-D52" id="JFh-mb-BfO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="itemTextField" destination="VcK-2A-mzN" id="VVL-ce-shv"/>
-                        <segue destination="1PB-Xt-gqu" kind="unwind" identifier="addItem" unwindAction="unwindToVC:" id="uzA-Ds-uhJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8PZ-DN-zo3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="1PB-Xt-gqu" userLabel="Exit" sceneMemberID="exit"/>
+                <viewControllerPlaceholder storyboardName="ItemAdd" id="Elt-Ai-RwI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ym8-EO-JIZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3840.579710144928" y="-863.16964285714278"/>
+            <point key="canvasLocation" x="2924" y="-986"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eG6-JE-Hes">
@@ -115,24 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQ4-5P-5SZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1289.8550724637682" y="-637.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wY4-ad-7Ab">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YPR-Ra-JWK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FtC-ak-1Jh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="td9-6b-D52" kind="relationship" relationship="rootViewController" id="JjI-hj-MEQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bW4-1n-dgm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3068" y="-863"/>
         </scene>
     </scenes>
     <resources>
