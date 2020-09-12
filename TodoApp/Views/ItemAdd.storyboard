@@ -45,14 +45,14 @@
                                 <action selector="cancelButton:" destination="fWs-Kz-rwd" id="tn8-Bx-ab5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="69E-je-Uvr">
+                        <barButtonItem key="rightBarButtonItem" title="追加" id="69E-je-Uvr">
                             <connections>
                                 <action selector="addCheckItem:" destination="fWs-Kz-rwd" id="hqz-3Y-b2l"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="vok-sB-amB" kind="unwind" identifier="unWindByItemAdd" unwindAction="unwindToVC:" id="wHx-po-Rtl"/>
+                        <segue destination="vok-sB-amB" kind="unwind" identifier="unwindByItemAdd" unwindAction="unwindToVC:" id="wHx-po-Rtl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ok6-9e-77m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

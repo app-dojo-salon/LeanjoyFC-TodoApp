@@ -21,7 +21,7 @@ final class ItemAddViewController: UIViewController {
     }
     
     @IBAction func addCheckItem(_ sender: Any) {
-        performSegue(withIdentifier: "unWindByItemAdd", sender: nil)
+        performSegue(withIdentifier: "unwindByItemAdd", sender: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {
