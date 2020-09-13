@@ -17,6 +17,8 @@
 		162C585F250520E400F069A6 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C585E250520E400F069A6 /* ItemListViewController.swift */; };
 		162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C58622505259200F069A6 /* ItemListTableViewCell.swift */; };
 		162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162C58632505259200F069A6 /* ItemListTableViewCell.xib */; };
+		61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61329913250874D200FC1819 /* ItemAddViewController.swift */; };
+		613299162509B7C600FC1819 /* ItemAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613299152509B7C600FC1819 /* ItemAdd.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		162C585E250520E400F069A6 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		162C58622505259200F069A6 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		162C58632505259200F069A6 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
+		61329913250874D200FC1819 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
+		613299152509B7C600FC1819 /* ItemAdd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemAdd.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		162C58602505220500F069A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				613299152509B7C600FC1819 /* ItemAdd.storyboard */,
 				162C585C250520BD00F069A6 /* ItemList.storyboard */,
 				162C58622505259200F069A6 /* ItemListTableViewCell.swift */,
 				162C58632505259200F069A6 /* ItemListTableViewCell.xib */,
@@ -146,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				162C585E250520E400F069A6 /* ItemListViewController.swift */,
+				61329913250874D200FC1819 /* ItemAddViewController.swift */,
 			);
 			name = Controllers;
 			path = Views/Controllers;
@@ -258,6 +264,7 @@
 				162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */,
 				162C585D250520BD00F069A6 /* ItemList.storyboard in Resources */,
 				162C583425051AC500F069A6 /* LaunchScreen.storyboard in Resources */,
+				613299162509B7C600FC1819 /* ItemAdd.storyboard in Resources */,
 				162C583125051AC500F069A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */,
+				61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */,
 				162C582825051AC500F069A6 /* AppDelegate.swift in Sources */,
 				162C582A25051AC500F069A6 /* SceneDelegate.swift in Sources */,
 				162C585F250520E400F069A6 /* ItemListViewController.swift in Sources */,
