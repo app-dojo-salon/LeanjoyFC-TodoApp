@@ -11,11 +11,28 @@ import UIKit
 final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
-    // テストデータを追加させるため、let->var、に変更
+    
+    // testItemData用のキー
+    // 課題チャレンジの動画を参考に作成
+    let keyName  = "keyName"
+    let keyCheck = "keyCheck"
+    
+    // チェックマーク状態を示すBool値を加えたチェックリスト
+    private var testItemData: [Dictionary<String,Any>] = []
     private var itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // チェックリストの初期化
+        testItemData = [
+            [keyName:"リンゴ",keyCheck:false],
+            [keyName:"メロン",keyCheck:false],
+            [keyName:"バナナ",keyCheck:false],
+            [keyName:"パイナップル",keyCheck:false],
+            [keyName:"オレンジ",keyCheck:false],
+        ]
+        
         setUpNib()
     }
     
