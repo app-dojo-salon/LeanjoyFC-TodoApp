@@ -14,8 +14,8 @@ final class ItemListViewController: UIViewController {
     
     // testItemData用のキー
     // 課題チャレンジの動画を参考に作成
-    let keyName  = "keyName"
-    let keyCheck = "keyCheck"
+    fileprivate let keyName  = "keyName"
+    fileprivate let keyCheck = "keyCheck"
     
     // チェックマーク状態を示すBool値を加えたチェックリスト
     private var testItemData: [Dictionary<String,Any>] = []
@@ -48,8 +48,6 @@ final class ItemListViewController: UIViewController {
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
             itemData.append(addItemVC.testCheckItem)
-            // printでの出力、tableViewでの表示、両方で追加されたかを確認
-            print(itemData)
             itemListTableView.reloadData()
         }
     }
@@ -65,6 +63,14 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = itemData[indexPath.row]
         cell.itemTitle.text = item
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // testItemDataのValueはAnyで宣言されてるので、if-let文でBoolに変換
+        if let isChecked = testItemData[indexPath.row][keyCheck] as? Bool {
+            // タップしたチェック項目のチェックマーク状態を反転
+            testItemData[indexPath.row][keyCheck] = !isChecked
+        }
     }
 }
 
