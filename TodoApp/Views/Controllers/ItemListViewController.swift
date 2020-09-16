@@ -8,29 +8,30 @@
 
 import UIKit
 
+private struct CheckItem {
+    var name : String
+    var check: Bool
+}
+
 final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
     
-    // testItemData用のキー
-    // 課題チャレンジの動画を参考に作成
-    fileprivate let keyName  = "keyName"
-    fileprivate let keyCheck = "keyCheck"
-    
-    // チェックマーク状態を示すBool値を加えたチェックリスト
-    private var testItemData: [Dictionary<String,Any>] = []
-    private var itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
+    // テスト用のチェックリスト
+    private var testItemData: [CheckItem] = []
+    // チェックリスト
+    private var itemData    : [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // チェックリストの初期化
         testItemData = [
-            [keyName:"リンゴ",keyCheck:false],
-            [keyName:"メロン",keyCheck:false],
-            [keyName:"バナナ",keyCheck:false],
-            [keyName:"パイナップル",keyCheck:false],
-            [keyName:"オレンジ",keyCheck:false],
+            CheckItem(name: "リンゴ", check: false),
+            CheckItem(name: "メロン", check: false),
+            CheckItem(name: "バナナ", check: false),
+            CheckItem(name: "パイナップル", check: false),
+            CheckItem(name: "オレンジ", check: false)
         ]
         
         setUpNib()
@@ -44,6 +45,7 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
+        // 注意!! まだstruct型に対応してないので、エラーが起きます！
         // 追加ボタンを押下した場合
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
@@ -66,11 +68,8 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // testItemDataのValueはAnyで宣言されてるので、if-let文でBoolに変換
-        if let isChecked = testItemData[indexPath.row][keyCheck] as? Bool {
-            // タップしたチェック項目のチェックマーク状態を反転
-            testItemData[indexPath.row][keyCheck] = !isChecked
-        }
+        // タップしたチェック項目のチェックマーク状態を反転
+        testItemData[indexPath.row].check.toggle()
     }
 }
 
