@@ -8,6 +8,7 @@
 
 import RealmSwift
 
-class items: Object {
-    @objc dynamic var item = ""
+class ItemModel: Object {
+    @objc dynamic var name: String?
+    // RealmSwiftでの保存用のclass作成（takuma）
 }

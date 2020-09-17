@@ -12,12 +12,23 @@ import RealmSwift
 final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
+    
+    let realm = try! Realm()
+    let itemModel = ItemModel()
+    
     // テストデータを追加させるため、let->var、に変更
     private var itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
+    // 一旦使っていません。（takuma）
+    
+    
+    var itemList: Results<ItemModel>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNib()
+        
+        itemList = realm.objects(ItemModel.self)
+        
     }
     
     private func setUpNib() {
@@ -32,6 +43,15 @@ final class ItemListViewController: UIViewController {
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
             itemData.append(addItemVC.testCheckItem)
+            
+            let itemModel = ItemModel()
+            itemModel.name = addItemVC.testCheckItem
+            try! realm.write {
+                realm.add(itemModel)
+            }
+            
+            
+            
             // printでの出力、tableViewでの表示、両方で追加されたかを確認
             print(itemData)
             itemListTableView.reloadData()
@@ -41,13 +61,15 @@ final class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        itemData.count
+        itemList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemListTableViewCell
-        let item = itemData[indexPath.row]
-        cell.itemTitle.text = item
+//        let item = itemData[indexPath.row]
+        
+        let item: ItemModel = self.itemList[(indexPath as NSIndexPath).row]
+        cell.itemTitle.text = item.name
         return cell
     }
 }
