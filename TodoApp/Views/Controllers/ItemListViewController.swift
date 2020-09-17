@@ -63,6 +63,11 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemListTableViewCell
         let item = itemData[indexPath.row]
+        cell.checkImageView.image = nil
+          // testItemDataのcheckがtrueかを判断したい
+//        if   as? Bool == true {
+            cell.checkImageView.image = UIImage(named: "check")
+//        }
         cell.itemTitle.text = item
         return cell
     }
