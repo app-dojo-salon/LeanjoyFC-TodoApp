@@ -8,7 +8,7 @@
 
 import UIKit
 
-private struct CheckItem {
+private struct CheckListItem {
     var name : String
     var check: Bool
 }
@@ -17,21 +17,19 @@ final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
     
-    // テスト用のチェックリスト
-    private var testItemData: [CheckItem] = []
     // チェックリスト
-    private var itemData    : [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
+    private var checkListItems: [CheckListItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // チェックリストの初期化
-        testItemData = [
-            CheckItem(name: "リンゴ", check: false),
-            CheckItem(name: "メロン", check: false),
-            CheckItem(name: "バナナ", check: false),
-            CheckItem(name: "パイナップル", check: false),
-            CheckItem(name: "オレンジ", check: false)
+        checkListItems = [
+            CheckListItem(name: "リンゴ", check: false),
+            CheckListItem(name: "メロン", check: false),
+            CheckListItem(name: "バナナ", check: false),
+            CheckListItem(name: "パイナップル", check: false),
+            CheckListItem(name: "オレンジ", check: false)
         ]
         
         setUpNib()
@@ -49,7 +47,7 @@ final class ItemListViewController: UIViewController {
         // 追加ボタンを押下した場合
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
-            itemData.append(addItemVC.testCheckItem)
+            checkListItems.append(addItemVC.testCheckItem)
             itemListTableView.reloadData()
         }
     }
@@ -57,12 +55,12 @@ final class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        itemData.count
+        checkListItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemListTableViewCell
-        let item = itemData[indexPath.row]
+        let item = checkListItems[indexPath.row]
         cell.checkImageView.image = nil
           // testItemDataのcheckがtrueかを判断したい
 //        if   as? Bool == true {
@@ -74,7 +72,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // タップしたチェック項目のチェックマーク状態を反転
-        testItemData[indexPath.row].check.toggle()
+        checkListItems[indexPath.row].check.toggle()
     }
 }
 
