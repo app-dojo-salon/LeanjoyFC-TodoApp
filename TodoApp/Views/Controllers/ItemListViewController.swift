@@ -13,21 +13,15 @@ final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
     
-    let realm = try! Realm()
-    let itemModel = ItemModel()
-    
-    // テストデータを追加させるため、let->var、に変更
+    // テストデータを追加させるため、let->var、に変更  // 一旦使っていません。（takuma）
     private var itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
-    // 一旦使っていません。（takuma）
     
-    
-    var itemList: Results<ItemModel>!
+    var itemList: Results<CheckListItem>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNib()
-        
-        itemList = realm.objects(ItemModel.self)
+        setRealm()
         
     }
     
@@ -44,19 +38,18 @@ final class ItemListViewController: UIViewController {
             let addItemVC = unwindSegue.source as! ItemAddViewController
             itemData.append(addItemVC.testCheckItem)
             
-            let itemModel = ItemModel()
-            itemModel.name = addItemVC.testCheckItem
-            try! realm.write {
-                realm.add(itemModel)
-            }
-            
-            
-            
             // printでの出力、tableViewでの表示、両方で追加されたかを確認
             print(itemData)
             itemListTableView.reloadData()
         }
     }
+    
+    func setRealm() {
+        let realm = try! Realm()
+        itemList = realm.objects(CheckListItem.self)
+    }
+    
+    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,10 +59,10 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemListTableViewCell
-//        let item = itemData[indexPath.row]
         
-        let item: ItemModel = self.itemList[(indexPath as NSIndexPath).row]
-        cell.itemTitle.text = item.name
+        let item = itemList[indexPath.row]
+        cell.itemTitle.text = item.itemName
+        
         return cell
     }
 }
