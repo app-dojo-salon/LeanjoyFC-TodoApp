@@ -13,7 +13,7 @@ final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
     
-    // テストデータを追加させるため、let->var、に変更  // 一旦使っていません。（takuma）
+    // テストデータを追加させるため、let->var に変更  // 一旦使っていません。（takuma）
     private var itemData: [String] = ["リンゴ", "メロン", "バナナ", "パイナップル", "オレンジ"]
     
     var itemList: Results<CheckListItem>!
@@ -66,4 +66,3 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
