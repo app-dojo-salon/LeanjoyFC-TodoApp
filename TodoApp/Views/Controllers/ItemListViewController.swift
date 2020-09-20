@@ -47,7 +47,8 @@ final class ItemListViewController: UIViewController {
         // 追加ボタンを押下した場合
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
-            checkListItems.append(addItemVC.testCheckItem)
+            let item = CheckListItem(name: addItemVC.testCheckItem, check: false)
+            checkListItems.append(item)
             itemListTableView.reloadData()
         }
     }
@@ -66,7 +67,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
 //        if   as? Bool == true {
             cell.checkImageView.image = UIImage(named: "check")
 //        }
-        cell.itemTitle.text = item
+        cell.itemTitle.text = item.name
         return cell
     }
     
