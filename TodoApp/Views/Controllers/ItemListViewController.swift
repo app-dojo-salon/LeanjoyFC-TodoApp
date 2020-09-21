@@ -8,11 +8,6 @@
 
 import UIKit
 
-private struct CheckListItem {
-    var name : String
-    var check: Bool
-}
-
 final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
@@ -22,15 +17,6 @@ final class ItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // チェックリストの初期化
-        checkListItems = [
-            CheckListItem(name: "リンゴ", check: false),
-            CheckListItem(name: "メロン", check: false),
-            CheckListItem(name: "バナナ", check: true),
-            CheckListItem(name: "パイナップル", check: true),
-            CheckListItem(name: "オレンジ", check: true)
-        ]
         
         setUpNib()
     }
@@ -43,12 +29,32 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
-        // 追加ボタンを押下した場合
-        if unwindSegue.identifier == "unwindByItemAdd" {
+        
+        // どの画面からの遷移してきたかを示す
+        enum SegueMode {
+            case add    // 追加画面
+            case other  // どの画面でもない
+        }
+        
+        let segueIdentifier     = unwindSegue.identifier
+        var segueMode:SegueMode = .other
+        
+        // unwindSegueのidentifierでsegueModeに値を入れる
+        switch segueIdentifier {
+        case "unwindByItemAdd": // 追加画面から遷移してきた場合
+            segueMode = .add
+        default: break
+        }
+        
+        // 新規データの追加、既存データの更新、などを行う
+        switch segueMode {
+        case .add:
             let addItemVC = unwindSegue.source as! ItemAddViewController
             let item = CheckListItem(name: addItemVC.testCheckItem, check: false)
             checkListItems.append(item)
             itemListTableView.reloadData()
+        case .other:
+            break
         }
     }
 }
