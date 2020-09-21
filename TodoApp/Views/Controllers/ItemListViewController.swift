@@ -21,7 +21,7 @@ final class ItemListViewController: UIViewController {
     // チェックリスト
     private var checkListItems: [CheckListItem] = []
     
-    var itemList: Results<CheckListItem>!
+    var itemList: Results<CheckListItem2>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ final class ItemListViewController: UIViewController {
     
     func setRealm() {
         let realm = try! Realm()
-        itemList = realm.objects(CheckListItem.self)
+        itemList = realm.objects(CheckListItem2.self)
     }
     
     
