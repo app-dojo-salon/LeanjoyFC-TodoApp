@@ -8,6 +8,12 @@
 
 import UIKit
 
+// どの画面からの遷移してきたかを示す
+private enum SegueMode {
+    case add    // 追加画面
+    case other  // どの画面でもない
+}
+
 final class ItemListViewController: UIViewController {
     
     @IBOutlet private weak var itemListTableView: UITableView!
@@ -29,12 +35,6 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
-        
-        // どの画面からの遷移してきたかを示す
-        enum SegueMode {
-            case add    // 追加画面
-            case other  // どの画面でもない
-        }
         
         let segueIdentifier     = unwindSegue.identifier
         var segueMode:SegueMode = .other
