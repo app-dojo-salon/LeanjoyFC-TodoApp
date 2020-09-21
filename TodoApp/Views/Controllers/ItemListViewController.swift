@@ -21,8 +21,8 @@ final class ItemListViewController: UIViewController {
     }
     
     private func setUpNib() {
-        let nib = UINib(nibName: IdentifierType.nibId.rawValue, bundle: nil)
-        itemListTableView.register(nib, forCellReuseIdentifier: IdentifierType.cellId.rawValue)
+        let nib = UINib(nibName: IdentifierType.nibId, bundle: nil)
+        itemListTableView.register(nib, forCellReuseIdentifier: IdentifierType.cellId)
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
     }
@@ -33,7 +33,7 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
-        guard unwindSegue.identifier == IdentifierType.segueId.rawValue else { return }
+        guard unwindSegue.identifier == IdentifierType.segueId else { return }
         let addItemVC = unwindSegue.source as! ItemAddViewController
         /// append
         itemListTableView.reloadData()
@@ -46,7 +46,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IdentifierType.cellId.rawValue, for: indexPath) as! ItemListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: IdentifierType.cellId, for: indexPath) as! ItemListTableViewCell
         let item = itemList[indexPath.row]
         cell.checkImageView.image = nil
         cell.checkImageView.image = UIImage(named: "check")

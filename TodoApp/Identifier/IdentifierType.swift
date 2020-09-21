@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum IdentifierType: String {
-    case segueId = "unwindByItemAdd"
-    case cellId = "Cell"
-    case nibId = "ItemListTableViewCell"
+enum IdentifierType {
+    static let segueId = "unwindByItemAdd"
+    static let cellId = "Cell"
+    static let nibId = "ItemListTableViewCell"
 }
