@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private struct CheckListItem {
     var name : String
@@ -19,6 +20,8 @@ final class ItemListViewController: UIViewController {
     
     // チェックリスト
     private var checkListItems: [CheckListItem] = []
+    
+    var itemList: Results<CheckListItem2>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,8 @@ final class ItemListViewController: UIViewController {
         ]
         
         setUpNib()
+        setRealm()
+        
     }
     
     private func setUpNib() {
@@ -47,11 +52,20 @@ final class ItemListViewController: UIViewController {
         // 追加ボタンを押下した場合
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
+
             let item = CheckListItem(name: addItemVC.testCheckItem, check: false)
             checkListItems.append(item)
+
             itemListTableView.reloadData()
         }
     }
+    
+    func setRealm() {
+        let realm = try! Realm()
+        itemList = realm.objects(CheckListItem2.self)
+    }
+    
+    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,6 +75,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemListTableViewCell
+
         let item = checkListItems[indexPath.row]
         cell.checkImageView.image = nil
           // testItemDataのcheckがtrueかを判断したい
@@ -76,4 +91,3 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         checkListItems[indexPath.row].check.toggle()
     }
 }
-
