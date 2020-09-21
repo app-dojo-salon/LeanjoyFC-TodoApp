@@ -10,7 +10,7 @@ import UIKit
 
 final class ItemAddViewController: UIViewController {
     
-    @IBOutlet weak var itemTextField: UITextField!
+    @IBOutlet private weak var itemTextField: UITextField!
     // テストデータ
     // private修飾子をつけるために、varで定義
     private(set) var testCheckItem = "test"
