@@ -27,9 +27,9 @@ final class ItemListViewController: UIViewController {
         checkListItems = [
             CheckListItem(name: "リンゴ", check: false),
             CheckListItem(name: "メロン", check: false),
-            CheckListItem(name: "バナナ", check: false),
-            CheckListItem(name: "パイナップル", check: false),
-            CheckListItem(name: "オレンジ", check: false)
+            CheckListItem(name: "バナナ", check: true),
+            CheckListItem(name: "パイナップル", check: true),
+            CheckListItem(name: "オレンジ", check: true)
         ]
         
         setUpNib()
@@ -43,7 +43,6 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
-        // 注意!! まだstruct型に対応してないので、エラーが起きます！
         // 追加ボタンを押下した場合
         if unwindSegue.identifier == "unwindByItemAdd" {
             let addItemVC = unwindSegue.source as! ItemAddViewController
@@ -61,8 +60,6 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemListTableViewCell
-//        let item = checkListItems[indexPath.row]
-//        cell.checkImageView.image = nil
         // testItemDataのcheckがtrueかを判断したい
         if checkListItems[indexPath.row].check {
             cell.checkImageView.image = UIImage(named: "check")
