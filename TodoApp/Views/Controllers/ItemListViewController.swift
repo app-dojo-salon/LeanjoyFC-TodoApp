@@ -40,10 +40,9 @@ final class ItemListViewController: UIViewController {
         var segueMode:SegueMode = .other
         
         // unwindSegueのidentifierでsegueModeに値を入れる
-        switch segueIdentifier {
-        case "unwindByItemAdd": // 追加画面から遷移してきた場合
+        // 追加画面から遷移してきた場合
+        if segueIdentifier == "unwindByItemAdd" {
             segueMode = .add
-        default: break
         }
         
         // 新規データの追加、既存データの更新、などを行う
