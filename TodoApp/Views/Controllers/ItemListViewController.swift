@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 // どの画面からの遷移してきたかを示す
 private enum SegueMode {
@@ -21,10 +22,14 @@ final class ItemListViewController: UIViewController {
     // チェックリスト
     private var checkListItems: [CheckListItem] = []
     
+    var itemList: Results<CheckListItem2>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNib()
+        setRealm()
+        
     }
     
     private func setUpNib() {
@@ -49,13 +54,22 @@ final class ItemListViewController: UIViewController {
         switch segueMode {
         case .add:
             let addItemVC = unwindSegue.source as! ItemAddViewController
+
             let item = CheckListItem(name: addItemVC.testCheckItem, check: false)
             checkListItems.append(item)
+
             itemListTableView.reloadData()
         case .other:
             break
         }
     }
+    
+    func setRealm() {
+        let realm = try! Realm()
+        itemList = realm.objects(CheckListItem2.self)
+    }
+    
+    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -81,4 +95,3 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
-
