@@ -19,7 +19,6 @@
 		162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162C58632505259200F069A6 /* ItemListTableViewCell.xib */; };
 		61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61329913250874D200FC1819 /* ItemAddViewController.swift */; };
 		613299162509B7C600FC1819 /* ItemAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613299152509B7C600FC1819 /* ItemAdd.storyboard */; };
-		615250AC2518821D00D0B51F /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615250AB2518821D00D0B51F /* items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		162C58632505259200F069A6 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
 		61329913250874D200FC1819 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
 		613299152509B7C600FC1819 /* ItemAdd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemAdd.storyboard; sourceTree = "<group>"; };
-		615250AB2518821D00D0B51F /* items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +107,6 @@
 		162C582625051AC500F069A6 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
-				615250AA251881D000D0B51F /* Models */,
 				162C58612505222300F069A6 /* Controllers */,
 				162C58602505220500F069A6 /* Views */,
 				162C583025051AC500F069A6 /* Assets.xcassets */,
@@ -158,14 +155,6 @@
 			);
 			name = Controllers;
 			path = Views/Controllers;
-			sourceTree = "<group>";
-		};
-		615250AA251881D000D0B51F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				615250AB2518821D00D0B51F /* items.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +292,6 @@
 			files = (
 				162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */,
 				61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */,
-				615250AC2518821D00D0B51F /* items.swift in Sources */,
 				162C582825051AC500F069A6 /* AppDelegate.swift in Sources */,
 				162C582A25051AC500F069A6 /* SceneDelegate.swift in Sources */,
 				162C585F250520E400F069A6 /* ItemListViewController.swift in Sources */,
