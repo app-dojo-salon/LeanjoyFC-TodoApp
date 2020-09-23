@@ -22,7 +22,7 @@ final class ItemAddViewController: UIViewController {
     }
     
     @IBAction func addCheckItem(_ sender: Any) {
-        performSegue(withIdentifier: "unwindByItemAdd", sender: nil)
+        performSegue(withIdentifier: IdentifierType.segueId, sender: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {
