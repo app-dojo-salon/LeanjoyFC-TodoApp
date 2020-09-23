@@ -48,14 +48,18 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: IdentifierType.cellId, for: indexPath) as! ItemListTableViewCell
         let item = itemList[indexPath.row]
-        cell.checkImageView.image = nil
-        cell.checkImageView.image = UIImage(named: "check")
+        if item.isChecked {
+            cell.checkImageView.image = UIImage(named: "check")
+        } else {
+            cell.checkImageView.image = nil
+        }
         cell.itemTitle.text = item.itemName
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // タップしたチェック項目のチェックマーク状態を反転
         itemList[indexPath.row].isChecked.toggle()
+        itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
