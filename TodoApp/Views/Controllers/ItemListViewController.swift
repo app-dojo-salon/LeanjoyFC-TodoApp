@@ -72,8 +72,10 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // タップしたチェック項目のチェックマーク状態を反転
-        // タップした際、エラーになるのは、次コミットで解消予定
-        itemList[indexPath.row].isChecked.toggle()
+        let realm = try! Realm()
+        try! realm.write() {
+            itemList[indexPath.row].isChecked.toggle()
+        }
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
