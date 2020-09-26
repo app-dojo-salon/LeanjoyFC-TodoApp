@@ -32,10 +32,23 @@ final class ItemListViewController: UIViewController {
         itemList = realm.objects(CheckListItem.self)
     }
     
+    private func addRealm(itemName: String, isChecked: Bool) {
+        let realm = try! Realm()
+        let addItem = CheckListItem()
+        addItem.itemName = itemName
+        addItem.isChecked = isChecked
+        try! realm.write() {
+            realm.add(addItem)
+        }
+        
+    }
+    
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
         guard unwindSegue.identifier == IdentifierType.segueId else { return }
         let addItemVC = unwindSegue.source as! ItemAddViewController
         /// append
+        addRealm(itemName: addItemVC.testCheckItem, isChecked: false)
+        
         itemListTableView.reloadData()
     }
 }
@@ -59,6 +72,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // タップしたチェック項目のチェックマーク状態を反転
+        // タップした際、エラーになるのは、次コミットで解消予定
         itemList[indexPath.row].isChecked.toggle()
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
