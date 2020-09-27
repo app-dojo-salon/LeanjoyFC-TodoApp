@@ -11,6 +11,8 @@ import RealmSwift
 
 final class ItemListViewController: UIViewController {
     
+    let realm = try! Realm()
+    
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
     
@@ -28,12 +30,10 @@ final class ItemListViewController: UIViewController {
     }
     
     private func setRealm() {
-        let realm = try! Realm()
         itemList = realm.objects(CheckListItem.self)
     }
     
     private func addRealm(itemName: String, isChecked: Bool) {
-        let realm = try! Realm()
         let addItem = CheckListItem()
         addItem.itemName = itemName
         addItem.isChecked = isChecked
@@ -72,7 +72,6 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // タップしたチェック項目のチェックマーク状態を反転
-        let realm = try! Realm()
         try! realm.write() {
             itemList[indexPath.row].isChecked.toggle()
         }
