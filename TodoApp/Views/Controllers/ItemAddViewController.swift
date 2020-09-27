@@ -30,6 +30,10 @@ final class ItemAddViewController: UIViewController {
             return
         }
         
+        // init()を使用すると長くなるので、値を代入する形にした
+        betaCheckItem.itemName = itemTextField.text!
+        betaCheckItem.isChecked = false
+        
         performSegue(withIdentifier: IdentifierType.segueId, sender: nil)
     }
     

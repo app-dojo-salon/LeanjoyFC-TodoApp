@@ -48,7 +48,6 @@ final class ItemListViewController: UIViewController {
         let addItemVC = unwindSegue.source as! ItemAddViewController
         /// append
         addRealm(itemName: addItemVC.testCheckItem, isChecked: false)
-        
         itemListTableView.reloadData()
     }
 }
