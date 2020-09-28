@@ -14,7 +14,7 @@ final class ItemAddViewController: UIViewController {
     @IBOutlet private weak var itemTextField: UITextField!
     // 新規追加用のチェック項目
     // まだ追加すると確定してないので、beta、を付けた
-    private(set) var betaCheckItem = CheckListItem()
+    private(set) var betaCheckItemName = ""
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,8 @@ final class ItemAddViewController: UIViewController {
         }
         
         // init()を使用すると長くなるので、値を代入する形にした
-        betaCheckItem.itemName = itemTextField.text!
-        betaCheckItem.isChecked = false
+        // CheckListItem()のスコープ範囲をList画面だけにするため
+        betaCheckItemName = itemTextField.text!
         
         performSegue(withIdentifier: IdentifierType.segueId, sender: nil)
     }
