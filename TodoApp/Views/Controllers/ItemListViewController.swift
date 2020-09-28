@@ -11,7 +11,7 @@ import RealmSwift
 
 final class ItemListViewController: UIViewController {
     
-    let realm = try! Realm()
+    private let realm = try! Realm()
     
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
