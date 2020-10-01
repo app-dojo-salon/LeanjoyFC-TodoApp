@@ -231,6 +231,7 @@
 				162C582125051AC500F069A6 /* Frameworks */,
 				162C582225051AC500F069A6 /* Resources */,
 				AC47628FB47123DBAD745176 /* [CP] Embed Pods Frameworks */,
+				16D30E3625255AD0008823E7 /* Run Script (Xcode Version Check) */,
 			);
 			buildRules = (
 			);
@@ -353,6 +354,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		16D30E3625255AD0008823E7 /* Run Script (Xcode Version Check) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode_version",
+			);
+			name = "Run Script (Xcode Version Check)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Xcodeのバージョンを指定のバージョン以外でビルドできないようにする\n\n# INPUT_FILEから環境変数を読み込む\n. $SCRIPT_INPUT_FILE_0\n\n# バージョン表記を4桁左詰めゼロパディング形式に変換\nREQUIRED_XCODE_VERSION=`echo $XCODE_VERSION | tr -d . | xargs printf '%-4d' | tr ' ' 0`\n\nif [ $REQUIRED_XCODE_VERSION != $XCODE_VERSION_ACTUAL ]; then\n    echo \"error: Detected wrong Xcode version. Expected=$REQUIRED_XCODE_VERSION, Actual=$XCODE_VERSION_ACTUAL.\" >&2\n    exit 1\nfi\n\n\n";
+		};
 		4D3263E93726BB569AD07028 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
