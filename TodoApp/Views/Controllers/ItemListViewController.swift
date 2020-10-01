@@ -12,7 +12,7 @@ import RealmSwift
 final class ItemListViewController: UIViewController {
     
     private let realm = try! Realm()
-    
+ 
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
     
@@ -47,8 +47,7 @@ final class ItemListViewController: UIViewController {
         guard unwindSegue.identifier == IdentifierType.segueId else { return }
         let addItemVC = unwindSegue.source as! ItemAddViewController
         /// append
-        addRealm(itemName: addItemVC.testCheckItem, isChecked: false)
-        
+        addRealm(itemName: addItemVC.betaCheckItemName, isChecked: false)
         itemListTableView.reloadData()
     }
 }

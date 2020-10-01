@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0mF-Yb-O47">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0mF-Yb-O47">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +29,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ddR-AA-fiT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8SO-P9-wLw" firstAttribute="top" secondItem="ddR-AA-fiT" secondAttribute="top" constant="60" id="4sJ-Sk-giH"/>
                             <constraint firstItem="60d-Z6-DDa" firstAttribute="leading" secondItem="ddR-AA-fiT" secondAttribute="leading" constant="40" id="8I1-AL-QkD"/>
@@ -36,7 +39,6 @@
                             <constraint firstItem="8SO-P9-wLw" firstAttribute="leading" secondItem="60d-Z6-DDa" secondAttribute="trailing" constant="26" id="elO-aV-p6A"/>
                             <constraint firstItem="ddR-AA-fiT" firstAttribute="trailing" secondItem="8SO-P9-wLw" secondAttribute="trailing" constant="20" id="kJe-gv-a6a"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ddR-AA-fiT"/>
                     </view>
                     <navigationItem key="navigationItem" title="項目追加" id="2Bf-09-Ve9">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Gqq-dX-T43"/>
@@ -52,6 +54,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="itemTextField" destination="8SO-P9-wLw" id="XlS-Eh-3Hh"/>
                         <segue destination="vok-sB-amB" kind="unwind" identifier="unwindByItemAdd" unwindAction="unwindToVC:" id="wHx-po-Rtl"/>
                     </connections>
                 </viewController>
@@ -79,4 +82,9 @@
             <point key="canvasLocation" x="160.86956521739131" y="-89.0625"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
