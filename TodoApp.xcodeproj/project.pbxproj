@@ -231,6 +231,7 @@
 				162C582125051AC500F069A6 /* Frameworks */,
 				162C582225051AC500F069A6 /* Resources */,
 				AC47628FB47123DBAD745176 /* [CP] Embed Pods Frameworks */,
+				16D17AB22528BB6E00AB4F45 /* Run Script(Xcode Version check) */,
 			);
 			buildRules = (
 			);
@@ -353,6 +354,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		16D17AB22528BB6E00AB4F45 /* Run Script(Xcode Version check) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script(Xcode Version check)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n# 12.0.1\nif [[ $XCODE_VERSION_ACTUAL != \"1201\" ]]; then\n  echo \"error: Check your XCode version.\"\n  return -1\nfi\n";
+		};
 		4D3263E93726BB569AD07028 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
