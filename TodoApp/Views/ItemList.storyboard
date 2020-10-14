@@ -40,7 +40,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="itemListTableView" destination="29h-Ba-gqV" id="MVP-wz-oSh"/>
-                        <segue destination="h5S-1J-O5e" kind="presentation" id="9dN-H6-Yza"/>
+                        <segue destination="h5S-1J-O5e" kind="presentation" identifier="itemEdit" id="9dN-H6-Yza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeI-hD-io9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
