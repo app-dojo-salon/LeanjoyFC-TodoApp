@@ -52,7 +52,11 @@ final class ItemListViewController: UIViewController {
     }
 }
 
-extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
+// ToNextViewDelegate 追加
+extension ItemListViewController: UITableViewDelegate,
+                                  UITableViewDataSource,
+                                  ToNextViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         itemList.count
     }
@@ -66,6 +70,9 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.checkImageView.image = nil
         }
         cell.itemTitle.text = item.itemName
+// 下1文追加
+        cell.delegate = self
+        
         return cell
     }
     
@@ -77,7 +84,8 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+// 追加
+    func toNextView() {
         performSegue(withIdentifier: "itemEdit", sender: nil)
     }
 }

@@ -22,4 +22,15 @@ class ItemListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+//以下、追記箇所
+    weak var delegate: ToNextViewDelegate?
+    
+    @IBAction func buttonTapped(_ sender: Any) {
+        self.delegate?.toNextView()
+    }
+    
 }
+
+protocol ToNextViewDelegate: AnyObject {
+        func toNextView()
+    }
