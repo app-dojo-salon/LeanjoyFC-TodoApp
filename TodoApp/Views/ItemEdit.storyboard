@@ -42,7 +42,7 @@
                     <navigationItem key="navigationItem" title="項目編集" id="eF4-9K-kFr">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="i5P-Pz-Ibp">
                             <connections>
-                                <action selector="cancelButton:" destination="kcR-wB-Iad" id="ZiW-Kq-eAJ"/>
+                                <action selector="cancelButton:" destination="kcR-wB-Iad" id="CII-TP-hzW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Wma-qt-ArF"/>

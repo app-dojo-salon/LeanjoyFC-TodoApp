@@ -15,7 +15,7 @@ final class ItemEditViewController: UIViewController {
 
     }
     
-    @IBAction func cancelButton(_ sender: Any) {
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
 
