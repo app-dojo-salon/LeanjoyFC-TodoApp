@@ -76,4 +76,8 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "itemEdit", sender: nil)
+    }
 }
