@@ -20,6 +20,11 @@ final class ItemListViewController: UIViewController {
         super.viewDidLoad()
         setUpNib()
         setRealm()
+        
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+//        let key = Realm.Configuration.defaultConfiguration.encryptionKey!
+//        let hexaDecimal = key.map { String(format: "%.2hhx", $0) }.joined()
+//        print(hexaDecimal)
     }
     
     private func setUpNib() {
@@ -40,8 +45,16 @@ final class ItemListViewController: UIViewController {
         try! realm.write() {
             realm.add(addItem)
         }
-        
     }
+    
+    //　itemNameを更新する関数
+//    private func editRealm(itemName: String, isChecked: Bool) {
+//        let editItem = realm.objects(CheckListItem.self)
+//        try! realm.write {
+//            editItem.itemName = itemName
+//            editItem.isChecked = isChecked
+//        }
+//    }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
         guard unwindSegue.identifier == IdentifierType.segueId else { return }
@@ -50,6 +63,17 @@ final class ItemListViewController: UIViewController {
         addRealm(itemName: addItemVC.betaCheckItemName, isChecked: false)
         itemListTableView.reloadData()
     }
+    
+    // Segueで渡されたeditedItemName変数を基にeditRealm関数でrealmデータを更新し、TableViewをリロード
+    @IBAction func unwindToVCFromEditVC(_ unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.identifier == IdentifierType.editSegueId else { return }
+        let itemEditVC = unwindSegue.source as! ItemEditViewController
+        print(itemEditVC.editedItemName)
+//        editRealm(itemName: itemEditVC.editedItemName, isChecked: false)
+        itemListTableView.reloadData()
+        
+    }
+    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -77,7 +101,16 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    //編集前のタスク名をitemEditVCに渡す
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "itemEdit", sender: nil)
+        performSegue(withIdentifier: "itemEdit", sender: itemList[indexPath.row].itemName)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemEdit" {
+            let nav =  segue.destination as! UINavigationController
+            let itemEditVC = nav.viewControllers[nav.viewControllers.count-1] as! ItemEditViewController
+            itemEditVC.editItemName = sender as! String
+        }
     }
 }
