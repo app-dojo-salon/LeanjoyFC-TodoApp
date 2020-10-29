@@ -12,6 +12,7 @@ import RealmSwift
 final class ItemEditViewController: UIViewController {
     
     @IBOutlet private weak var editTextField: UITextField!
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     var editItemName: String = ""
     var editedItemName: String = ""
@@ -21,18 +22,20 @@ final class ItemEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
         editTextField.text = editItemName //編集前のタスク名を表示
-        
     }
-    @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        // 1文字も入力されてなければ、アラートで警告し、処理を中断
-        if editTextField.text!.isEmpty {
-            let alert = UIAlertController(title: "エラー", message: "1文字以上を入力してください", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            present(alert, animated: true, completion:  nil)
-            return
+    
+    // TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替える
+    @IBAction func checkTextFieldIsEmpty(_ sender: Any) {
+        if editTextField.text == "" {
+            saveButton.isEnabled = false
+        } else {
+            saveButton.isEnabled = true
         }
+    }
+    
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
         //unwindSegueでItemListViewControllerに戻る
         editedItemName = editTextField.text!
         print(editedItemName)
