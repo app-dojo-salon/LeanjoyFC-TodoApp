@@ -26,6 +26,9 @@
                                 <rect key="frame" x="101" y="148" width="293" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkTextFieldIsEmpty:" destination="kcR-wB-Iad" eventType="editingChanged" id="h29-eg-QWc"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OVp-Vx-BWL"/>
@@ -45,10 +48,20 @@
                                 <action selector="cancelButton:" destination="kcR-wB-Iad" id="CII-TP-hzW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Wma-qt-ArF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Wma-qt-ArF">
+                            <connections>
+                                <action selector="saveButton:" destination="kcR-wB-Iad" id="JLP-MH-xEu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editTextField" destination="pL7-fM-fga" id="Df2-Am-dVy"/>
+                        <outlet property="saveButton" destination="Wma-qt-ArF" id="KTL-Ha-MAE"/>
+                        <segue destination="nzw-Xs-iSb" kind="unwind" identifier="unwindByItemEdit" unwindAction="unwindToVCFromEditVC:" id="0Cl-29-axN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6n-7p-9wI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="nzw-Xs-iSb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="945" y="-15"/>
         </scene>
