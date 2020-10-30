@@ -15,8 +15,7 @@ final class ItemEditViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     var editItemName: String = ""
-    var editedItemName: String = ""
-    var itemList:Results<CheckListItem>?
+    private(set) var editedItemName: String = ""
     private let realm = try! Realm()
     
     
