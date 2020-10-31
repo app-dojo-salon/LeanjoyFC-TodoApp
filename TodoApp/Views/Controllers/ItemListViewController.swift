@@ -17,8 +17,8 @@ final class ItemListViewController: UIViewController {
     private var itemList: Results<CheckListItem>!
     private var editCellIndexPath: Int?  //編集するcellのindexPathを保存する変数
     private enum SegueIdentifier {
-            static let edit = "unwindByItemEdit"
-        }
+        static let edit = "unwindByItemEdit"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
