@@ -18,6 +18,10 @@ final class ItemEditViewController: UIViewController {
     private(set) var editedItemName: String = ""
     private let realm = try! Realm()
     
+    private enum SegueIdentifier {
+        static let edit = "unwindByItemEdit"
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +42,7 @@ final class ItemEditViewController: UIViewController {
         //unwindSegueでItemListViewControllerに戻る
         editedItemName = editTextField.text!
         print(editedItemName)
-        performSegue(withIdentifier: IdentifierType.editSegueId, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.edit, sender: nil)
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {

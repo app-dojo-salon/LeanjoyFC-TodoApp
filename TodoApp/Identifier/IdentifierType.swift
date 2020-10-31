@@ -12,5 +12,4 @@ enum IdentifierType {
     static let segueId = "unwindByItemAdd"
     static let cellId = "Cell"
     static let nibId = "ItemListTableViewCell"
-    static let editSegueId = "unwindByItemEdit"
 }

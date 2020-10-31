@@ -16,6 +16,9 @@ final class ItemListViewController: UIViewController {
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
     private var editCellIndexPath: Int?  //編集するcellのindexPathを保存する変数
+    private enum SegueIdentifier {
+            static let edit = "unwindByItemEdit"
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,7 @@ final class ItemListViewController: UIViewController {
     }
     
     //　itemNameを更新する関数
-    func editRealm(itemName: String, isChecked: Bool) {
+    private func editRealm(itemName: String, isChecked: Bool) {
         let editItem = realm.objects(CheckListItem.self)
         try! realm.write {
             editItem[editCellIndexPath!].itemName = itemName
@@ -64,7 +67,7 @@ final class ItemListViewController: UIViewController {
     
     // Segueで渡されたeditedItemName変数を基にeditRealm関数でrealmデータを更新し、TableViewをリロード
     @IBAction func unwindToVCFromEditVC(_ unwindSegue: UIStoryboardSegue) {
-        guard unwindSegue.identifier == IdentifierType.editSegueId else { return }
+        guard unwindSegue.identifier == SegueIdentifier.edit else { return }
         let itemEditVC = unwindSegue.source as! ItemEditViewController
         print(itemEditVC.editedItemName)
         editRealm(itemName: itemEditVC.editedItemName, isChecked: false)
