@@ -70,7 +70,7 @@ final class ItemListViewController: UIViewController {
         guard unwindSegue.identifier == SegueIdentifier.edit else { return }
         let itemEditVC = unwindSegue.source as! ItemEditViewController
         print(itemEditVC.editedItemName)
-        editRealm(itemName: itemEditVC.editedItemName, isChecked: false)
+        editRealm(itemName: itemEditVC.editedItemName, isChecked: itemList[editCellIndexPath!].isChecked)
         itemListTableView.reloadData()
     }
     
