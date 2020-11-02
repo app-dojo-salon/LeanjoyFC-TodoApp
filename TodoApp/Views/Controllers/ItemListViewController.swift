@@ -15,7 +15,7 @@ final class ItemListViewController: UIViewController {
  
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
-    private var editCellIndexPath: Int?  //編集するcellのindexPathを保存する変数
+    private var selectedIndexPathRow: Int?  //編集するcellのindexPathを保存する変数
     private enum SegueIdentifier {
         static let edit = "unwindByItemEdit"
     }
@@ -52,8 +52,8 @@ final class ItemListViewController: UIViewController {
     private func editRealm(itemName: String, isChecked: Bool) {
         let editItem = realm.objects(CheckListItem.self)
         try! realm.write {
-            editItem[editCellIndexPath!].itemName = itemName
-            editItem[editCellIndexPath!].isChecked = isChecked
+            editItem[selectedIndexPathRow!].itemName = itemName
+            editItem[selectedIndexPathRow!].isChecked = isChecked
         }
     }
     
@@ -70,7 +70,7 @@ final class ItemListViewController: UIViewController {
         guard unwindSegue.identifier == SegueIdentifier.edit else { return }
         let itemEditVC = unwindSegue.source as! ItemEditViewController
         print(itemEditVC.editedItemName)
-        editRealm(itemName: itemEditVC.editedItemName, isChecked: itemList[editCellIndexPath!].isChecked)
+        editRealm(itemName: itemEditVC.editedItemName, isChecked: itemList[selectedIndexPathRow!].isChecked)
         itemListTableView.reloadData()
     }
     
@@ -103,7 +103,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     //編集前のタスク名をitemEditVCに渡す
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        editCellIndexPath = indexPath.row //編集するCellのindexPathを取得
+        selectedIndexPathRow = indexPath.row //編集するCellのindexPathを取得
         performSegue(withIdentifier: "itemEdit", sender: itemList[indexPath.row].itemName)
     }
     
