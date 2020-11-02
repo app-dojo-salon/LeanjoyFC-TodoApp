@@ -14,7 +14,7 @@ final class ItemEditViewController: UIViewController {
     @IBOutlet private weak var editTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     
-    var editItemName: String = ""
+    var selectedItemName: String = ""
     private(set) var editedItemName: String = ""
     private let realm = try! Realm()
     
@@ -25,7 +25,7 @@ final class ItemEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editTextField.text = editItemName //編集前のタスク名を表示
+        editTextField.text = selectedItemName //編集前のタスク名を表示
     }
     
     // TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替える

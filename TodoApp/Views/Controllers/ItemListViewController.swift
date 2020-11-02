@@ -111,7 +111,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "itemEdit" {
             let nav =  segue.destination as! UINavigationController
             let itemEditVC = nav.viewControllers[nav.viewControllers.count-1] as! ItemEditViewController
-            itemEditVC.editItemName = sender as! String
+            itemEditVC.selectedItemName = sender as! String
         }
     }
 }
