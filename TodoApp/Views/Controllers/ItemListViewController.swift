@@ -50,10 +50,9 @@ final class ItemListViewController: UIViewController {
     
     //　itemNameを更新する関数
     private func editRealm(itemName: String, isChecked: Bool) {
-        let editItem = realm.objects(CheckListItem.self)
         try! realm.write {
-            editItem[selectedIndexPathRow!].itemName = itemName
-            editItem[selectedIndexPathRow!].isChecked = isChecked
+            itemList[selectedIndexPathRow!].itemName = itemName
+            itemList[selectedIndexPathRow!].isChecked = isChecked
         }
     }
     
