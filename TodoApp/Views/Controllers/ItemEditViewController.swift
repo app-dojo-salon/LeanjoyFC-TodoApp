@@ -41,7 +41,6 @@ final class ItemEditViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         //unwindSegueでItemListViewControllerに戻る
         editedItemName = editTextField.text!
-        print(editedItemName)
         performSegue(withIdentifier: SegueIdentifier.edit, sender: nil)
     }
     

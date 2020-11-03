@@ -24,8 +24,6 @@ final class ItemListViewController: UIViewController {
         super.viewDidLoad()
         setUpNib()
         setRealm()
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     private func setUpNib() {
@@ -68,7 +66,6 @@ final class ItemListViewController: UIViewController {
     @IBAction func unwindToVCFromEditVC(_ unwindSegue: UIStoryboardSegue) {
         guard unwindSegue.identifier == SegueIdentifier.edit else { return }
         let itemEditVC = unwindSegue.source as! ItemEditViewController
-        print(itemEditVC.editedItemName)
         editRealm(itemName: itemEditVC.editedItemName, isChecked: itemList[selectedIndexPathRow!].isChecked)
         itemListTableView.reloadData()
     }
