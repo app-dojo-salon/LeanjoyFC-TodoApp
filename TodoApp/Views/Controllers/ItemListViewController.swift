@@ -106,7 +106,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemEdit" {
             let nav =  segue.destination as! UINavigationController
-            let itemEditVC = nav.viewControllers[nav.viewControllers.count-1] as! ItemEditViewController
+            let itemEditVC = nav.topViewController as! ItemEditViewController
             itemEditVC.selectedItemName = sender as! String
         }
     }
