@@ -30,7 +30,7 @@ final class ItemEditViewController: UIViewController {
     
     // TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替える
     @IBAction func checkTextFieldIsEmpty(_ sender: Any) {
-        if editTextField.text == "" {
+        if editTextField.text!.isEmpty {
             saveButton.isEnabled = false
         } else {
             saveButton.isEnabled = true
