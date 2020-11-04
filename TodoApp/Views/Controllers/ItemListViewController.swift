@@ -15,6 +15,10 @@ final class ItemListViewController: UIViewController {
  
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
+    private var selectedIndexPathRow: Int?  //編集するcellのindexPathを保存する変数
+    private enum SegueIdentifier {
+        static let edit = "unwindByItemEdit"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,14 @@ final class ItemListViewController: UIViewController {
         try! realm.write() {
             realm.add(addItem)
         }
-        
+    }
+    
+    //　itemNameを更新する関数
+    private func editRealm(itemName: String, isChecked: Bool) {
+        try! realm.write {
+            itemList[selectedIndexPathRow!].itemName = itemName
+            itemList[selectedIndexPathRow!].isChecked = isChecked
+        }
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
@@ -50,6 +61,15 @@ final class ItemListViewController: UIViewController {
         addRealm(itemName: addItemVC.betaCheckItemName, isChecked: false)
         itemListTableView.reloadData()
     }
+    
+    // Segueで渡されたeditedItemName変数を基にeditRealm関数でrealmデータを更新し、TableViewをリロード
+    @IBAction func unwindToVCFromEditVC(_ unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.identifier == SegueIdentifier.edit else { return }
+        let itemEditVC = unwindSegue.source as! ItemEditViewController
+        editRealm(itemName: itemEditVC.editedItemName, isChecked: itemList[selectedIndexPathRow!].isChecked)
+        itemListTableView.reloadData()
+    }
+    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -77,7 +97,17 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    //編集前のタスク名をitemEditVCに渡す
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "itemEdit", sender: nil)
+        selectedIndexPathRow = indexPath.row //編集するCellのindexPathを取得
+        performSegue(withIdentifier: "itemEdit", sender: itemList[indexPath.row].itemName)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemEdit" {
+            let nav =  segue.destination as! UINavigationController
+            let itemEditVC = nav.topViewController as! ItemEditViewController
+            itemEditVC.selectedItemName = sender as! String
+        }
     }
 }
