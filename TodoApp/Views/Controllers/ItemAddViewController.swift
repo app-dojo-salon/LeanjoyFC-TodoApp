@@ -13,27 +13,28 @@ final class ItemAddViewController: UIViewController {
     
     @IBOutlet private weak var itemTextField: UITextField!
     // 新規追加用のチェック項目
-    // まだ追加すると確定してないので、beta、を付けた
     private(set) var betaCheckItemName = ""
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
+    // 1文字も入力されてなければ、アラートで警告し、処理を中断させる
     @IBAction func addCheckItem(_ sender: Any) {
-        // 1文字も入力されてなければ、アラートで警告し、処理を中断
         if itemTextField.text!.isEmpty {
-            let alert = UIAlertController(title: "エラー", message: "1文字以上を入力してください", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "エラー",
+                                          message: "1文字以上を入力してください",
+                                          preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .cancel,
+                                          handler: nil))
+
             present(alert, animated: true, completion:  nil)
             return
         }
-        
-        // init()を使用すると長くなるので、値を代入する形にした
-        // CheckListItem()のスコープ範囲をList画面だけにするため
+
         betaCheckItemName = itemTextField.text!
-        
         performSegue(withIdentifier: IdentifierType.segueId, sender: nil)
     }
     

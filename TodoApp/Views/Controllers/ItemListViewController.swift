@@ -12,7 +12,6 @@ import RealmSwift
 final class ItemListViewController: UIViewController {
     
     private let realm = try! Realm()
- 
     @IBOutlet private weak var itemListTableView: UITableView!
     private var itemList: Results<CheckListItem>!
     private var selectedIndexPathRow: Int?  //編集するcellのindexPathを保存する変数
@@ -45,7 +44,7 @@ final class ItemListViewController: UIViewController {
             realm.add(addItem)
         }
     }
-    
+
     //　itemNameを更新する関数
     private func editRealm(itemName: String, isChecked: Bool) {
         try! realm.write {
@@ -57,7 +56,6 @@ final class ItemListViewController: UIViewController {
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
         guard unwindSegue.identifier == IdentifierType.segueId else { return }
         let addItemVC = unwindSegue.source as! ItemAddViewController
-        /// append
         addRealm(itemName: addItemVC.betaCheckItemName, isChecked: false)
         itemListTableView.reloadData()
     }
@@ -88,18 +86,19 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.itemTitle.text = item.itemName
         return cell
     }
-    
+
+    // タップしたチェック項目のチェックマーク状態を反転させる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // タップしたチェック項目のチェックマーク状態を反転
         try! realm.write() {
             itemList[indexPath.row].isChecked.toggle()
         }
         itemListTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    //編集前のタスク名をitemEditVCに渡す
+    /// 編集前のタスク名をitemEditVCに渡す
+    /// 編集するCellのindexPathを取得する
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        selectedIndexPathRow = indexPath.row //編集するCellのindexPathを取得
+        selectedIndexPathRow = indexPath.row
         performSegue(withIdentifier: "itemEdit", sender: itemList[indexPath.row].itemName)
     }
     
