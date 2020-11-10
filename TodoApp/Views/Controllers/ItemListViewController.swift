@@ -103,9 +103,9 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "itemEdit", sender: itemList[indexPath.row].itemName)
     }
     
-    //セルを右スワイプでRealm,テーブルから削除
+    // セルを右スワイプでRealm,テーブルから削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
+        if editingStyle == .delete {
             
             try! realm.write {
                 realm.delete(itemList[indexPath.row])
