@@ -8,7 +8,6 @@
 
 import RealmSwift
 
-// RealmSwiftでの保存用のclass作成（takuma）
 class CheckListItem: Object {
     @objc dynamic var itemName: String = ""
     @objc dynamic var isChecked: Bool = false

@@ -9,6 +9,10 @@
 import UIKit
 import RealmSwift
 
+private enum ItemEditVCIdentifierType {
+    static let edit = "unwindByItemEdit"
+}
+
 final class ItemEditViewController: UIViewController {
     
     @IBOutlet private weak var editTextField: UITextField!
@@ -17,17 +21,13 @@ final class ItemEditViewController: UIViewController {
     var selectedItemName: String = ""
     private(set) var editedItemName: String = ""
     private let realm = try! Realm()
-    
-    private enum SegueIdentifier {
-        static let edit = "unwindByItemEdit"
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         editTextField.text = selectedItemName
     }
     
-    // TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替える
+    /// TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替え
     @IBAction func checkTextFieldIsEmpty(_ sender: Any) {
         if editTextField.text!.isEmpty {
             saveButton.isEnabled = false
@@ -36,10 +36,10 @@ final class ItemEditViewController: UIViewController {
         }
     }
 
-    // unwindSegueでItemListViewControllerに戻る
+    /// unwindSegueでItemListViewControllerに戻る
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         editedItemName = editTextField.text!
-        performSegue(withIdentifier: SegueIdentifier.edit, sender: nil)
+        performSegue(withIdentifier: ItemEditVCIdentifierType.edit, sender: nil)
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
