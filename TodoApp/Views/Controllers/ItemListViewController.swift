@@ -103,18 +103,6 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "itemEdit", sender: itemList[indexPath.row].itemName)
     }
     
-    //セルを右スワイプでRealm,テーブルから削除
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            
-            try! realm.write {
-                realm.delete(itemList[indexPath.row])
-            }
-
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemEdit" {
             let nav =  segue.destination as! UINavigationController
