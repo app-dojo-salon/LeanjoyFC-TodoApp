@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-private enum ItemAddVCIdentifierType {
+private enum SegueIdentifier {
     static let segueId = "unwindByItemAdd"
 }
 
@@ -45,7 +45,7 @@ final class ItemAddViewController: UIViewController {
         }
 
         betaCheckItemName = itemTextField.text!
-        performSegue(withIdentifier: ItemAddVCIdentifierType.segueId, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.segueId, sender: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {

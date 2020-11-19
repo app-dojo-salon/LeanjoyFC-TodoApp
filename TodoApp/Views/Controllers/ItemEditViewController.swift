@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-private enum ItemEditVCIdentifierType {
+private enum SegueIdentifier {
     static let edit = "unwindByItemEdit"
 }
 
@@ -39,7 +39,7 @@ final class ItemEditViewController: UIViewController {
     /// unwindSegueでItemListViewControllerに戻る
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         editedItemName = editTextField.text!
-        performSegue(withIdentifier: ItemEditVCIdentifierType.edit, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.edit, sender: nil)
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
