@@ -9,9 +9,15 @@
 import UIKit
 import RealmSwift
 
-private enum ItemListVCIdentifierType {
+private enum CellIdentifier {
     static let cell = "Cell"
-    static let nib = "ItemListTableViewCell"
+}
+
+private enum NibName {
+    static let itemListTableViewCell = "ItemListTableViewCell"
+}
+
+private enum SegueIdentifier {
     static let edit = "unwindByItemEdit"
     static let itemEdit = "itemEdit"
     static let segueId = "unwindByItemAdd"
@@ -32,8 +38,8 @@ final class ItemListViewController: UIViewController {
     }
     
     private func setUpNib() {
-        let nib = UINib(nibName: ItemListVCIdentifierType.nib, bundle: nil)
-        itemListTableView.register(nib, forCellReuseIdentifier: ItemListVCIdentifierType.cell)
+        let nib = UINib(nibName: NibName.itemListTableViewCell, bundle: nil)
+        itemListTableView.register(nib, forCellReuseIdentifier: CellIdentifier.cell)
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
     }
@@ -60,7 +66,7 @@ final class ItemListViewController: UIViewController {
     }
     
     @IBAction func unwindToVC(_ unwindSegue: UIStoryboardSegue) {
-        guard unwindSegue.identifier == ItemListVCIdentifierType.segueId else { return }
+        guard unwindSegue.identifier == SegueIdentifier.segueId else { return }
         let addItemVC = unwindSegue.source as! ItemAddViewController
         addRealm(itemName: addItemVC.betaCheckItemName, isChecked: false)
         itemListTableView.reloadData()
@@ -68,7 +74,7 @@ final class ItemListViewController: UIViewController {
     
     /// Segueで渡されたeditedItemName変数を基にeditRealm関数でrealmデータを更新し、TableViewをリロード
     @IBAction func unwindToVCFromEditVC(_ unwindSegue: UIStoryboardSegue) {
-        guard unwindSegue.identifier == ItemListVCIdentifierType.edit else { return }
+        guard unwindSegue.identifier == SegueIdentifier.edit else { return }
         let itemEditVC = unwindSegue.source as! ItemEditViewController
         editRealm(itemName: itemEditVC.editedItemName, isChecked: itemList[selectedIndexPathRow!].isChecked)
         itemListTableView.reloadData()
@@ -81,7 +87,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemListVCIdentifierType.cell, for: indexPath) as! ItemListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.cell, for: indexPath) as! ItemListTableViewCell
         let item = itemList[indexPath.row]
         if item.isChecked {
             cell.checkImageView.image = UIImage(named: "check")
@@ -104,7 +110,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     /// 編集するCellのindexPathを取得する
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         selectedIndexPathRow = indexPath.row
-        performSegue(withIdentifier: ItemListVCIdentifierType.itemEdit,
+        performSegue(withIdentifier: SegueIdentifier.itemEdit,
                      sender: itemList[indexPath.row].itemName)
     }
     
@@ -119,7 +125,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == ItemListVCIdentifierType.itemEdit {
+        if segue.identifier == SegueIdentifier.itemEdit {
             let navigationVC =  segue.destination as! UINavigationController
             let itemEditVC = navigationVC.topViewController as! ItemEditViewController
             itemEditVC.selectedItemName = sender as! String
