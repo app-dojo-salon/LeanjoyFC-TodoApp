@@ -20,7 +20,6 @@ final class ItemEditViewController: UIViewController {
     
     var selectedItemName: String = ""
     private(set) var editedItemName: String = ""
-    private let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,41 +14,34 @@ private enum SegueIdentifier {
 }
 
 final class ItemAddViewController: UIViewController {
-
-    private enum AlertLanguage {
-        static let ErrorTitle = "エラー"
-        static let ErrorMessage = "1文字以上を入力してください"
-        static let ok = "ok"
-    }
     
     @IBOutlet private weak var itemTextField: UITextField!
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
+  
     /// 新規追加用のチェック項目
     private(set) var betaCheckItemName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.isEnabled = false
+    }
+  
+    /// TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替え
+    @IBAction func checkTextFieldIsEmpty(_ sender: Any) {
+        if itemTextField.text!.isEmpty {
+            saveButton.isEnabled = false
+        } else {
+            saveButton.isEnabled = true
+        }
     }
     
-    /// 1文字も入力されてなければ、アラートで警告し、処理を中断
-    @IBAction func addCheckItem(_ sender: Any) {
-        if itemTextField.text!.isEmpty {
-            let alert = UIAlertController(title: AlertLanguage.ErrorTitle,
-                                          message: AlertLanguage.ErrorMessage,
-                                          preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: AlertLanguage.ok,
-                                          style: .cancel,
-                                          handler: nil))
-
-            present(alert, animated: true, completion:  nil)
-            return
-        }
-
+    /// unwindSegueでItemListViewControllerに戻る
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
         betaCheckItemName = itemTextField.text!
         performSegue(withIdentifier: SegueIdentifier.segueId, sender: nil)
     }
     
-    @IBAction func cancelButton(_ sender: Any) {
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
