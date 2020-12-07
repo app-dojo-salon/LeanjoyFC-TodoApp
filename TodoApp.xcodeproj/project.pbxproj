@@ -18,8 +18,9 @@
 		162C585F250520E400F069A6 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C585E250520E400F069A6 /* ItemListViewController.swift */; };
 		162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C58622505259200F069A6 /* ItemListTableViewCell.swift */; };
 		162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162C58632505259200F069A6 /* ItemListTableViewCell.xib */; };
-		16F1AF992518F752001E6D4D /* IdentifierType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F1AF982518F752001E6D4D /* IdentifierType.swift */; };
 		21150886F42BBA1F41CEC031 /* Pods_TodoApp_TodoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E246E43E0527A7B3E3992B18 /* Pods_TodoApp_TodoAppUITests.framework */; };
+		26C5252D25349BEA0029F83D /* ItemEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5252C25349BEA0029F83D /* ItemEdit.storyboard */; };
+		26C5253225349C770029F83D /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5253125349C770029F83D /* ItemEditViewController.swift */; };
 		26D053C4251118A0006A4675 /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D053C3251118A0006A4675 /* items.swift */; };
 		61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61329913250874D200FC1819 /* ItemAddViewController.swift */; };
 		613299162509B7C600FC1819 /* ItemAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613299152509B7C600FC1819 /* ItemAdd.storyboard */; };
@@ -60,8 +61,9 @@
 		162C585E250520E400F069A6 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		162C58622505259200F069A6 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		162C58632505259200F069A6 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
-		16F1AF982518F752001E6D4D /* IdentifierType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierType.swift; sourceTree = "<group>"; };
 		1BEBF9910557AD691B2FC54E /* Pods-TodoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26C5252C25349BEA0029F83D /* ItemEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemEdit.storyboard; sourceTree = "<group>"; };
+		26C5253125349C770029F83D /* ItemEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		26D053C3251118A0006A4675 /* items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		49581766F5C8789EBF727BB5 /* Pods_TodoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61329913250874D200FC1819 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +130,6 @@
 		162C582625051AC500F069A6 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
-				16F1AF972518F6F1001E6D4D /* Identifier */,
 				26D053C225111856006A4675 /* Models */,
 				162C58612505222300F069A6 /* Controllers */,
 				162C58602505220500F069A6 /* Views */,
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				613299152509B7C600FC1819 /* ItemAdd.storyboard */,
+				26C5252C25349BEA0029F83D /* ItemEdit.storyboard */,
 				162C585C250520BD00F069A6 /* ItemList.storyboard */,
 				162C58622505259200F069A6 /* ItemListTableViewCell.swift */,
 				162C58632505259200F069A6 /* ItemListTableViewCell.xib */,
@@ -175,17 +177,10 @@
 			children = (
 				162C585E250520E400F069A6 /* ItemListViewController.swift */,
 				61329913250874D200FC1819 /* ItemAddViewController.swift */,
+				26C5253125349C770029F83D /* ItemEditViewController.swift */,
 			);
 			name = Controllers;
 			path = Views/Controllers;
-			sourceTree = "<group>";
-		};
-		16F1AF972518F6F1001E6D4D /* Identifier */ = {
-			isa = PBXGroup;
-			children = (
-				16F1AF982518F752001E6D4D /* IdentifierType.swift */,
-			);
-			path = Identifier;
 			sourceTree = "<group>";
 		};
 		26D053C225111856006A4675 /* Models */ = {
@@ -330,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */,
+				26C5252D25349BEA0029F83D /* ItemEdit.storyboard in Resources */,
 				162C585D250520BD00F069A6 /* ItemList.storyboard in Resources */,
 				162C583425051AC500F069A6 /* LaunchScreen.storyboard in Resources */,
 				613299162509B7C600FC1819 /* ItemAdd.storyboard in Resources */,
@@ -482,7 +478,7 @@
 				162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */,
 				61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */,
 				26D053C4251118A0006A4675 /* items.swift in Sources */,
-				16F1AF992518F752001E6D4D /* IdentifierType.swift in Sources */,
+				26C5253225349C770029F83D /* ItemEditViewController.swift in Sources */,
 				162C582825051AC500F069A6 /* AppDelegate.swift in Sources */,
 				162C582A25051AC500F069A6 /* SceneDelegate.swift in Sources */,
 				162C585F250520E400F069A6 /* ItemListViewController.swift in Sources */,

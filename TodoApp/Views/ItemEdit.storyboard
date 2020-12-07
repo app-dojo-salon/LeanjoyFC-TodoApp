@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v5z-BQ-mIB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--項目編集-->
+        <scene sceneID="M9T-5j-FdP">
+            <objects>
+                <viewController id="kcR-wB-Iad" customClass="ItemEditViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v0y-XF-mWF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xms-n0-Wta">
+                                <rect key="frame" x="40" y="155" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pL7-fM-fga">
+                                <rect key="frame" x="101" y="148" width="293" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkTextFieldIsEmpty:" destination="kcR-wB-Iad" eventType="editingChanged" id="h29-eg-QWc"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OVp-Vx-BWL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xms-n0-Wta" firstAttribute="leading" secondItem="OVp-Vx-BWL" secondAttribute="leading" constant="40" id="GWU-pj-JgS"/>
+                            <constraint firstItem="pL7-fM-fga" firstAttribute="leading" secondItem="Xms-n0-Wta" secondAttribute="trailing" constant="26" id="YTT-0P-wIG"/>
+                            <constraint firstItem="Xms-n0-Wta" firstAttribute="top" secondItem="OVp-Vx-BWL" secondAttribute="top" constant="67" id="Yhg-fV-GYl"/>
+                            <constraint firstItem="pL7-fM-fga" firstAttribute="top" secondItem="OVp-Vx-BWL" secondAttribute="top" constant="60" id="b4I-Lx-WCK"/>
+                            <constraint firstItem="pL7-fM-fga" firstAttribute="leading" secondItem="Xms-n0-Wta" secondAttribute="trailing" constant="26" id="gCL-zv-tZO"/>
+                            <constraint firstItem="OVp-Vx-BWL" firstAttribute="trailing" secondItem="pL7-fM-fga" secondAttribute="trailing" constant="20" id="mxB-52-WgN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="項目編集" id="eF4-9K-kFr">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="i5P-Pz-Ibp">
+                            <connections>
+                                <action selector="cancelButton:" destination="kcR-wB-Iad" id="CII-TP-hzW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Wma-qt-ArF">
+                            <connections>
+                                <action selector="saveButton:" destination="kcR-wB-Iad" id="JLP-MH-xEu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editTextField" destination="pL7-fM-fga" id="Df2-Am-dVy"/>
+                        <outlet property="saveButton" destination="Wma-qt-ArF" id="KTL-Ha-MAE"/>
+                        <segue destination="nzw-Xs-iSb" kind="unwind" identifier="unwindByItemEdit" unwindAction="unwindToVCFromEditVC:" id="0Cl-29-axN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6n-7p-9wI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="nzw-Xs-iSb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="-15"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6NF-LB-0n0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v5z-BQ-mIB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gmy-4O-MyD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kcR-wB-Iad" kind="relationship" relationship="rootViewController" id="k4w-Uo-Jc2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5iM-jR-10e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="227.536231884058" y="-15.401785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
