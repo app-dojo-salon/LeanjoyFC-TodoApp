@@ -14,10 +14,10 @@ private enum SegueIdentifier {
 }
 
 final class ItemAddViewController: UIViewController {
-    
+
     @IBOutlet private weak var itemTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
-  
+
     /// 新規追加用のチェック項目
     private(set) var betaCheckItemName = ""
 
@@ -25,7 +25,7 @@ final class ItemAddViewController: UIViewController {
         super.viewDidLoad()
         saveButton.isEnabled = false
     }
-  
+
     /// TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替え
     @IBAction func checkTextFieldIsEmpty(_ sender: Any) {
         if itemTextField.text!.isEmpty {
@@ -34,15 +34,15 @@ final class ItemAddViewController: UIViewController {
             saveButton.isEnabled = true
         }
     }
-    
+
     /// unwindSegueでItemListViewControllerに戻る
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         betaCheckItemName = itemTextField.text!
         performSegue(withIdentifier: SegueIdentifier.segueId, sender: nil)
     }
-    
+
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
+
 }

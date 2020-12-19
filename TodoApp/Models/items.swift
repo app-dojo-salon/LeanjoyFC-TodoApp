@@ -12,4 +12,3 @@ class CheckListItem: Object {
     @objc dynamic var itemName: String = ""
     @objc dynamic var isChecked: Bool = false
 }
-

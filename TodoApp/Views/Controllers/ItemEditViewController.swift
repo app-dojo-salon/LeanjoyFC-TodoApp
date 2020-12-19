@@ -14,10 +14,10 @@ private enum SegueIdentifier {
 }
 
 final class ItemEditViewController: UIViewController {
-    
+
     @IBOutlet private weak var editTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
-    
+
     var selectedItemName: String = ""
     private(set) var editedItemName: String = ""
 
@@ -25,7 +25,7 @@ final class ItemEditViewController: UIViewController {
         super.viewDidLoad()
         editTextField.text = selectedItemName
     }
-    
+
     /// TextFieldに文字が入力されているか確認し、SaveButtonの無効化と有効化を切り替え
     @IBAction func checkTextFieldIsEmpty(_ sender: Any) {
         if editTextField.text!.isEmpty {
@@ -40,7 +40,7 @@ final class ItemEditViewController: UIViewController {
         editedItemName = editTextField.text!
         performSegue(withIdentifier: SegueIdentifier.edit, sender: nil)
     }
-    
+
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
