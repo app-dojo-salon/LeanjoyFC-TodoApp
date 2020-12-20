@@ -366,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n# 12.0.1\nif [[ $XCODE_VERSION_ACTUAL != \"1201\" ]]; then\n  echo \"error: Check your XCode version.\"\n  return -1\nfi\n";
+			shellScript = "\n# 12.2.0\nif [[ $XCODE_VERSION_ACTUAL != \"1220\" ]]; then\n  echo \"error: Check your XCode version.\"\n  return -1\nfi\n";
 		};
 		4D3263E93726BB569AD07028 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
