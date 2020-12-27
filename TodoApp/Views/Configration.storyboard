@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--設定-->
         <scene sceneID="Xkx-NT-Ng9">
             <objects>
                 <viewController id="61j-xU-wdS" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="Os7-MQ-ldP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="91p-g7-tRX"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="gearshape" catalog="system" id="91p-g7-tRX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHb-T1-O3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +26,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

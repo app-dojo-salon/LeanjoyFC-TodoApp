@@ -63,11 +63,11 @@
             </objects>
             <point key="canvasLocation" x="3464" y="-777"/>
         </scene>
-        <!--Item-->
+        <!--チェックリスト-->
         <scene sceneID="eG6-JE-Hes">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4qC-kh-rG9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="W97-wb-QuS"/>
+                    <tabBarItem key="tabBarItem" title="チェックリスト" image="checkmark" catalog="system" id="W97-wb-QuS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CuC-Yn-4dR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -105,7 +105,7 @@
         <scene sceneID="cR7-QC-9Yr">
             <objects>
                 <viewControllerPlaceholder storyboardName="Configration" id="5fp-8Z-gZD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ijZ-o1-VBA"/>
+                    <tabBarItem key="tabBarItem" title="" id="ijZ-o1-VBA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAf-sQ-c1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
