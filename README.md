@@ -5,7 +5,8 @@
 - からなず全員が手元で動きを確認する
 - 気になったCodeや実装箇所があったら遠慮せずコメントを書く
 
-## 他随時追記する
+## チームドキュメント
+https://github.com/app-dojo-salon/LearnjoyFC_Document
 
 
 
