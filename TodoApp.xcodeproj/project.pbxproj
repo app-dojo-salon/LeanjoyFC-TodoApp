@@ -19,12 +19,13 @@
 		162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C58622505259200F069A6 /* ItemListTableViewCell.swift */; };
 		162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162C58632505259200F069A6 /* ItemListTableViewCell.xib */; };
 		21150886F42BBA1F41CEC031 /* Pods_TodoApp_TodoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E246E43E0527A7B3E3992B18 /* Pods_TodoApp_TodoAppUITests.framework */; };
-		2696DDBE2597373E00B61CD8 /* Configration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2696DDBD2597373E00B61CD8 /* Configration.storyboard */; };
 		26C5252D25349BEA0029F83D /* ItemEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5252C25349BEA0029F83D /* ItemEdit.storyboard */; };
 		26C5253225349C770029F83D /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5253125349C770029F83D /* ItemEditViewController.swift */; };
 		26D053C4251118A0006A4675 /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D053C3251118A0006A4675 /* items.swift */; };
 		61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61329913250874D200FC1819 /* ItemAddViewController.swift */; };
 		613299162509B7C600FC1819 /* ItemAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613299152509B7C600FC1819 /* ItemAdd.storyboard */; };
+		69003DDD25C2C98900762DA0 /* Configration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69003DDC25C2C98900762DA0 /* Configration.storyboard */; };
+		698FCA1225B85339000618C8 /* ConfigrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698FCA1125B85339000618C8 /* ConfigrationViewController.swift */; };
 		C74126D68E57068E7536FD86 /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C279085DE841D20F18A0283D /* Pods_TodoAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,13 +64,14 @@
 		162C58622505259200F069A6 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		162C58632505259200F069A6 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
 		1BEBF9910557AD691B2FC54E /* Pods-TodoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2696DDBD2597373E00B61CD8 /* Configration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configration.storyboard; sourceTree = "<group>"; };
 		26C5252C25349BEA0029F83D /* ItemEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemEdit.storyboard; sourceTree = "<group>"; };
 		26C5253125349C770029F83D /* ItemEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		26D053C3251118A0006A4675 /* items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		49581766F5C8789EBF727BB5 /* Pods_TodoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61329913250874D200FC1819 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
 		613299152509B7C600FC1819 /* ItemAdd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemAdd.storyboard; sourceTree = "<group>"; };
+		69003DDC25C2C98900762DA0 /* Configration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Configration.storyboard; sourceTree = "<group>"; };
+		698FCA1125B85339000618C8 /* ConfigrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigrationViewController.swift; sourceTree = "<group>"; };
 		901E4077E31E65B91B1ED8FC /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		92856F3FD4BFC1CDC480FBD3 /* Pods-TodoApp-TodoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoApp-TodoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TodoApp-TodoAppUITests/Pods-TodoApp-TodoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C279085DE841D20F18A0283D /* Pods_TodoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,10 +167,10 @@
 		162C58602505220500F069A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69003DDC25C2C98900762DA0 /* Configration.storyboard */,
 				613299152509B7C600FC1819 /* ItemAdd.storyboard */,
 				26C5252C25349BEA0029F83D /* ItemEdit.storyboard */,
 				162C585C250520BD00F069A6 /* ItemList.storyboard */,
-				2696DDBD2597373E00B61CD8 /* Configration.storyboard */,
 				162C58622505259200F069A6 /* ItemListTableViewCell.swift */,
 				162C58632505259200F069A6 /* ItemListTableViewCell.xib */,
 			);
@@ -178,6 +180,7 @@
 		162C58612505222300F069A6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				698FCA1125B85339000618C8 /* ConfigrationViewController.swift */,
 				162C585E250520E400F069A6 /* ItemListViewController.swift */,
 				61329913250874D200FC1819 /* ItemAddViewController.swift */,
 				26C5253125349C770029F83D /* ItemEditViewController.swift */,
@@ -327,7 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2696DDBE2597373E00B61CD8 /* Configration.storyboard in Resources */,
+				69003DDD25C2C98900762DA0 /* Configration.storyboard in Resources */,
 				162C58652505259200F069A6 /* ItemListTableViewCell.xib in Resources */,
 				26C5252D25349BEA0029F83D /* ItemEdit.storyboard in Resources */,
 				162C585D250520BD00F069A6 /* ItemList.storyboard in Resources */,
@@ -481,6 +484,7 @@
 			files = (
 				162C58642505259200F069A6 /* ItemListTableViewCell.swift in Sources */,
 				61329914250874D200FC1819 /* ItemAddViewController.swift in Sources */,
+				698FCA1225B85339000618C8 /* ConfigrationViewController.swift in Sources */,
 				26D053C4251118A0006A4675 /* items.swift in Sources */,
 				26C5253225349C770029F83D /* ItemEditViewController.swift in Sources */,
 				162C582825051AC500F069A6 /* AppDelegate.swift in Sources */,
