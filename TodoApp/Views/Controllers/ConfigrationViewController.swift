@@ -16,7 +16,7 @@ private enum NibName {
     static let configrationViewCell = "ConfigrationViewCell"
 }
 
-class ConfigrationViewController: UIViewController {
+final class ConfigrationViewController: UIViewController {
     @IBOutlet weak var configrationTableView: UITableView!
     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     var infoList: [(title: String, value: String)] = []
